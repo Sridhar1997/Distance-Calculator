@@ -1,0 +1,36 @@
+h1 {
+    text-align:center;
+}
+pre{
+    white-space:pre-wrap ;
+}
+input{
+    text-align:center;
+    width:42%;
+}
+div{
+    text-align:center;
+}
+canvas{
+    background-color:lightblue;
+    border:1px solid black;
+    border-radius:5px;
+}
+
+#firstletter{
+    color: white; 
+    float: left; 
+    font-family: serif; 
+    font-size: 32px; 
+    line-height: 32px; 
+    border:1px solid black;
+    padding-right: 3px; 
+    padding-left: 3px;
+    margin-right: 3px;
+    background-color:lightblue;
+    text-shadow:1px 1px 8px black;
+}
+button{
+    margin-top:1em;
+    margin-bottom:1em;
+}
