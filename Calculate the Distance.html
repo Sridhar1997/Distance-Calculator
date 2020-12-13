@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate the Distance</title>
+    </head>
+    <body onload="start();">
+    
+       <h1>Calculate the Distance</h1>
+<p>
+<span id="firstletter">A</span> cartesian plane is defined by two perpendicular number lines: the x-axis, which is horizontal, and the y-axis, which is vertical.</p><p>
+Using these axes, we can describe any point in the plane using an ordered pair of numbers.</p>
+<p>
+Task:
+Write a program which takes two different points, A(x1,y1) and B(x2,y2), and returns the distance between these two points.
+The distance formula is the Pythagorean Theorem: </p>
+    <div>
+        <input id="x1" placeholder="x1" type="number" value="-50">
+        <input id="y1" placeholder="y1" type="number" value="-50">
+        <input id="x2" placeholder="x2" type="number" value="50">
+        <input id="y2" placeholder="y2"  type="number" value="50">
+        <button onclick="getdistance();">Get Distance</button>
+        <button onclick="clearcanvas();">Clear</button>
+        <br />
+        <canvas id="canvas" width="200" height="200"></canvas></div>
+    </body>
+</html>
