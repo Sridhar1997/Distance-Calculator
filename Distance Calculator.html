@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate the Distance</title>
+        <style>
+        h1 {
+    text-align:center;
+}
+pre{
+    white-space:pre-wrap ;
+}
+input{
+    text-align:center;
+    width:42%;
+}
+div{
+    text-align:center;
+}
+canvas{
+    background-color:lightblue;
+    border:1px solid black;
+    border-radius:5px;
+}
+
+#firstletter{
+    color: white; 
+    float: left; 
+    font-family: serif; 
+    font-size: 32px; 
+    line-height: 32px; 
+    border:1px solid black;
+    padding-right: 3px; 
+    padding-left: 3px;
+    margin-right: 3px;
+    background-color:lightblue;
+    text-shadow:1px 1px 8px black;
+}
+button{
+    margin-top:1em;
+    margin-bottom:1em;
+}
+</style>
+    </head>
+    <body onload="start();">
+    
+       <h1>Calculate the Distance</h1>
+<p>
+<span id="firstletter">A</span> cartesian plane is defined by two perpendicular number lines: the x-axis, which is horizontal, and the y-axis, which is vertical.</p><p>
+Using these axes, we can describe any point in the plane using an ordered pair of numbers.</p>
+<p>
+Task:
+Write a program which takes two different points, A(x1,y1) and B(x2,y2), and returns the distance between these two points.
+The distance formula is the Pythagorean Theorem: </p>
+    <div>
+        <input id="x1" placeholder="x1" type="number" value="-50">
+        <input id="y1" placeholder="y1" type="number" value="-50">
+        <input id="x2" placeholder="x2" type="number" value="50">
+        <input id="y2" placeholder="y2"  type="number" value="50">
+        <button onclick="getdistance();">Get Distance</button>
+        <button onclick="clearcanvas();">Clear</button>
+        <br />
+        <canvas id="canvas" width="200" height="200"></canvas></div>
+        
+        
+        
+
+<script>
+function getdistance(){
+    var x1=parseInt(document.getElementById("x1").value);
+    var x2=parseInt(document.getElementById("x2").value);
+    var y1=parseInt(document.getElementById("y1").value);
+    var y2=parseInt(document.getElementById("y2").value);
+    var dx=x2-x1;
+    var dy=y2-y1;
+    var distance=Math.sqrt((dx**2)+(dy**2));
+    alert(distance);
+    distance=distance.toFixed(2);
+    
+    drawline(x1+100,(-y1+100),x2+100,(-y2+100));
+    drawpoint(x1+100,100-y1);
+    drawpoint(x2+100,100-y2);
+    
+    drawtext(x1+100,90-y1,"a",12,"serif","red");
+    drawtext(x2+100,90-y2,"b",12,"serif","ref");
+    
+    drawtext(x1+((x2-x1)/2)+100,100+y1+((y2-y1)/2),distance,12,"serif","red");
+    
+}
+
+
+function drawline(x1,y1,x2,y2){
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    
+    
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
+
+
+function start(){
+    drawline(0,100,200,100);
+    drawline(100,0,100,200);
+    drawline(100,0,90,10);
+    drawline(100,0,110,10);
+    drawline(100,200,90,190);
+    drawline(100,200,110,190);
+    drawline(0,100,10,90);
+    drawline(0,100,10,110);
+    drawline(200,100,190,90);
+    drawline(200,100,190,110);
+    drawtext(90,20,"y",10,"serif","black");
+    drawtext(180,110,"x",10,"serif","black")
+    
+}
+
+
+function drawpoint(x,y){
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    
+    ctx.beginPath();
+    ctx.arc(x,y,2,0,Math.PI*2)
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
+
+function drawtext(x,y,text, size,font,color){
+    var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.font = size+"px"+" "+font;
+ctx.fillStyle=color;
+ctx.fillText(text,x,y); 
+}
+
+
+function clearcanvas(){
+    var canvas =document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 200, 200);
+    start();
+}
+
+
+
+
+
+function getdistance(){
+    var x1=parseInt(document.getElementById("x1").value);
+    var x2=parseInt(document.getElementById("x2").value);
+    var y1=parseInt(document.getElementById("y1").value);
+    var y2=parseInt(document.getElementById("y2").value);
+    var dx=x2-x1;
+    var dy=y2-y1;
+    var distance=Math.sqrt((dx**2)+(dy**2));
+    alert(distance);
+    distance=distance.toFixed(2);
+    
+    drawline(x1+100,(-y1+100),x2+100,(-y2+100));
+    drawpoint(x1+100,100-y1);
+    drawpoint(x2+100,100-y2);
+    
+    drawtext(x1+100,90-y1,"a",12,"serif","red");
+    drawtext(x2+100,90-y2,"b",12,"serif","ref");
+    
+    drawtext(x1+((x2-x1)/2)+100,100+y1+((y2-y1)/2),distance,12,"serif","red");
+    
+}
+
+
+function drawline(x1,y1,x2,y2){
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    
+    
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
+
+
+function start(){
+    drawline(0,100,200,100);
+    drawline(100,0,100,200);
+    drawline(100,0,90,10);
+    drawline(100,0,110,10);
+    drawline(100,200,90,190);
+    drawline(100,200,110,190);
+    drawline(0,100,10,90);
+    drawline(0,100,10,110);
+    drawline(200,100,190,90);
+    drawline(200,100,190,110);
+    drawtext(90,20,"y",10,"serif","black");
+    drawtext(180,110,"x",10,"serif","black")
+    
+}
+
+
+function drawpoint(x,y){
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    
+    ctx.beginPath();
+    ctx.arc(x,y,2,0,Math.PI*2)
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+}
+
+function drawtext(x,y,text, size,font,color){
+    var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.font = size+"px"+" "+font;
+ctx.fillStyle=color;
+ctx.fillText(text,x,y); 
+}
+
+
+function clearcanvas(){
+    var canvas =document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 200, 200);
+    start();
+}
+</script>
+
+
+    </body>
+</html>
